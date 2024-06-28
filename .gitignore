@@ -12,3 +12,4 @@ __pycache__/
 *.sqlite
 model.pkl
 practice.ipynb
+creditcard.csv
