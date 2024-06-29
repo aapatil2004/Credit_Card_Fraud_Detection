@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, flash, send_file
+from flask import Flask, request, render_template, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import UserMixin, LoginManager, login_user, login_required, logout_user, current_user
 from flask_wtf import FlaskForm
@@ -6,13 +6,6 @@ from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import InputRequired, Length, Email, ValidationError
 from flask_bcrypt import Bcrypt
 from flask_migrate import Migrate
-import pandas as pd
-import pickle
-import numpy as np
-import matplotlib.pyplot as plt
-import io
-import base64
-import time
 from flask_wtf.csrf import CSRFProtect
 
 app = Flask(__name__)
@@ -25,13 +18,6 @@ bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 migrate = Migrate(app, db)
-
-# Load the model and scaler
-with open('model.pkl', 'rb') as model_file:
-    model = pickle.load(model_file)
-
-with open('scaler.pkl', 'rb') as scaler_file:
-    scaler = pickle.load(scaler_file)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -64,7 +50,6 @@ class LoginForm(FlaskForm):
     password = PasswordField(validators=[InputRequired(), Length(min=8, max=20)], render_kw={"placeholder": "Password"})
     submit = SubmitField('Login')
 
-
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
@@ -76,7 +61,6 @@ def register():
         flash('Registration successful! You can now log in.', 'success')
         return redirect(url_for('login'))
     return render_template('register.html', form=form)
-
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -101,7 +85,6 @@ def logout():
 def dashboard():
     return render_template('dashboard.html')
 
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -117,42 +100,6 @@ def contact():
 @app.route('/features')
 def features():
     return render_template('features.html')
-
-@app.route('/predict_file', methods=['POST'])
-@login_required
-def predict_file():
-    file = request.files.get('file')
-    if not file or file.filename == '':
-        return "No file uploaded", 400
-
-    try:
-        data = pd.read_csv(file)
-        features = data.drop('Class', axis=1, errors='ignore')
-        features_scaled = scaler.transform(features)
-        predictions = model.predict(features_scaled)
-    except Exception as e:
-        return f"Error processing file: {str(e)}", 500
-
-    results = pd.DataFrame({'Prediction': predictions})
-
-    try:
-        # Generate graph
-        fraud_count = results['Prediction'].value_counts()
-        fig, ax = plt.subplots()
-        fraud_count.plot(kind='bar', ax=ax)
-        ax.set_title('Fraudulent vs Non-Fraudulent Transactions')
-        ax.set_xlabel('Class')
-        ax.set_ylabel('Count')
-
-        # Save plot to a bytes object
-        img = io.BytesIO()
-        plt.savefig(img, format='png')
-        img.seek(0)
-        plot_url = base64.b64encode(img.getvalue()).decode('utf8')
-    except Exception as e:
-        return f"Error generating plot: {str(e)}", 500
-
-    return render_template('results.html', tables=[results.to_html()], plot_url=plot_url)
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True)
