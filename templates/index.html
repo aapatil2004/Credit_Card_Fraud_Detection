@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="Credit Card Fraud Detection, Fraud Prevention, Secure Transactions" />
+  <meta name="description"
+    content="Protect your financial transactions with our advanced credit card fraud detection system." />
+  <meta name="author" content="Credit Card Fraud Detection Team" />
+
+  <title>Credit Card Fraud Detection</title>
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet" />
+  <!-- Custom styles for this template -->
+  <link href="static/css/style.css" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="static/css/responsive.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+          <a class="navbar-brand" href="index.html">
+            <img src="static/images/logo.png" alt="" />
+            <span> FraudDetect360 </span>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="about">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="features">Features</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact">Contact</a>
+              </li>
+            </ul>
+            <div class="user_option">
+              <a href="login">
+                <span> Login </span>
+              </a>
+              <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
+                <button class="btn my-2 my-sm-0 nav_search-btn" type="submit"></button>
+              </form>
+            </div>
+          </div>
+          <div>
+            <div class="custom_menu-btn">
+              <button>
+                <span class="s-1"></span>
+                <span class="s-2"></span>
+                <span class="s-3"></span>
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class="slider_section">
+      <div class="carousel_btn-container">
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
+            01
+          </li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1">
+            02
+          </li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2">
+            03
+          </li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5 offset-md-1">
+                  <div class="detail-box">
+                    <h1>
+                      Secure Your <br />
+                      Transactions <br />
+                      With Us
+                    </h1>
+                    <p>
+                      Our advanced fraud detection system ensures your
+                      financial safety and peace of mind.
+                    </p>
+                    <div class="btn-box">
+                      <a href="about" class="btn-1"> About Us </a>
+                      <a href="contact" class="btn-2"> Contact Us </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="offset-md-1 col-md-4 img-container">
+                  <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="Secure Transactions" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5 offset-md-1">
+                  <div class="detail-box">
+                    <h1>
+                      Real-Time <br />
+                      Fraud Detection <br />
+                      Solutions
+                    </h1>
+                    <p>
+                      Detect and prevent fraudulent activities in real-time
+                      with our cutting-edge technology.
+                    </p>
+                    <div class="btn-box">
+                      <a href="features" class="btn-1"> Our Features </a>
+                      <a href="contact" class="btn-2"> Contact Us </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="offset-md-1 col-md-4 img-container">
+                  <div class="img-box">
+                    <img src="{{ url_for('static', filename='images/slider-img.png') }}"
+                      alt="Real-Time Fraud Detection" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-5 offset-md-1">
+                  <div class="detail-box">
+                    <h1>
+                      Protect Your <br />
+                      Business <br />
+                      Today
+                    </h1>
+                    <p>
+                      Join thousands of businesses using our fraud detection
+                      system to secure their transactions.
+                    </p>
+                    <div class="btn-box">
+                      <a href="about" class="btn-1"> About Us </a>
+                      <a href="contact" class="btn-2"> Contact Us </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="offset-md-1 col-md-4 img-container">
+                  <div class="img-box">
+                    <img src="slider-img.png" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="features">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact">Contact</a>
+                </li>
+              </ul>
+              <div class="user_option">
+                <a href="logout">
+                  <span> Log Out </span>
+                </a>
+              </div>
+            </div>
+            <div>
+              <div class="custom_menu-btn">
+                <button>
+                  <span class="s-1"></span>
+                  <span class="s-2"></span>
+                  <span class="s-3"></span>
+                </button>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!-- end header section -->
+    </div>
+
+  <!-- experience section -->
+
+  <section class="experience_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="img-box">
+            <img src="{{ url_for('static', filename='images/experience-img.jpg') }}" alt="Experience" />
+          </div>
+        </div>
+        <div class="col-md-7">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>Welcome to FraudDetect360</h2>
+            </div>
+            <p>
+              <h4>Protecting Your Transactions, Securing Your Future</h4>
+              <p>FraudDetect360 offers cutting-edge fraud detection solutions powered by advanced machine learning
+              technology. Safeguard your financial transactions with real-time monitoring and proactive fraud
+              prevention. Join us in ensuring a secure digital financial ecosystem.</p>
+
+              <h4>Key Features:</h4>
+              Real-time fraud detection<br>
+              Advanced machine learning algorithms<br>
+              Secure and seamless transaction monitoring<br>
+              Dedicated to protecting your financial security<br>
+              Get Started Today and Experience Peace of Mind with FraudDetect360.<br>
+            </p>
+            <div class="btn-box">
+              <a href="about" class="btn-1"> About Us </a>
+              <a href="features" class="btn-2"> Get Started </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end experience section -->
+
+  <!-- features section -->
+
+  <section class="category_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>Features</h2>
+      </div>
+      <div class="category_container">
+        <div class="box">
+          <div class="img-box">
+            <img src="static/images/f1.png" alt="Real-Time Monitoring" />
+          </div>
+          <div class="detail-box">
+            <h5>Real-Time Monitoring</h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="static/images/f2.png" alt="AI-Powered Analysis" />
+          </div>
+          <div class="detail-box">
+            <h5>AI-Powered Analysis</h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="static/images/f3.png" alt="Comprehensive Reports" />
+          </div>
+          <div class="detail-box">
+            <h5>Comprehensive Reports</h5>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img-box">
+            <img src="static/images/f4.png" alt="User-Friendly Interface" />
+          </div>
+          <div class="detail-box">
+            <h5>User-Friendly Interface</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end features section -->
+
+  <!-- info section -->
+
+  <!-- <section class="info_section ">
+    <div class="info_container layout_padding-top">
+      <div class="container">
+        <div class="info_top">
+          <div class="info_logo">
+            <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" />
+            <span>
+              Credit Card Fraud Detection
+            </span>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <img src="static/images/linkedin.png" alt="">
+            </a>
+            <a href="#">
+              <img src="static/images/instagram.png" alt="">
+            </a>
+          </div>
+        </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <a class="nav-link" href="/index">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="about">About</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="features">Features</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact">Contact</a>
+                </li>
+              </ul>
+              <div class="user_option">
+                <a href="logout">
+                  <span> Log Out </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="img-box">
+              <img
+                src="{{ url_for('static', filename='images/experience-img.jpg') }}"
+                alt="Experience"
+              />
+            </div>
+          </div>
+          <div class="col-md-7">
+            <div class="detail-box">
+              <div class="heading_container">
+                <h2>Decades of Experience in Fraud Detection</h2>
+              </div>
+              <p>
+                With years of experience, we provide the most reliable and
+                efficient fraud detection solutions to keep your transactions
+                secure.
+              </p>
+              <div class="btn-box">
+                <a href="about" class="btn-1"> Read More </a>
+                <a href="contact" class="btn-2"> Get Started </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- end experience section -->
+
+    <!-- features section -->
+
+    <!-- <section class="category_section layout_padding">
+      <div class="container">
+        <div class="heading_container">
+          <h2>Features</h2>
+        </div>
+        <div class="category_container">
+          <div class="box">
+            <div class="img-box">
+              <img src="static/images/f1.png" alt="Real-Time Monitoring" />
+            </div>
+            <div class="detail-box">
+              <h5>Real-Time Monitoring</h5>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="static/images/f2.png" alt="AI-Powered Analysis" />
+            </div>
+            <div class="detail-box">
+              <h5>AI-Powered Analysis</h5>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="static/images/f3.png" alt="Comprehensive Reports" />
+            </div>
+            <div class="detail-box">
+              <h5>Comprehensive Reports</h5>
+            </div>
+          </div>
+          <div class="box">
+            <div class="img-box">
+              <img src="static/images/f4.png" alt="User-Friendly Interface" />
+            </div>
+            <div class="detail-box">
+              <h5>User-Friendly Interface</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> -->
+
+    <!-- end features section -->
+
+    <!-- info section -->
+
+  <section class="info_section">
+    <div class="info_container layout_padding-top">
+      <div class="container">
+        <div class="info_top">
+          <div class="info_logo">
+            <img src="static/images/logo.png" alt="" />
+            <span> Credit Card Fraud Detection </span>
+          </div>
+          <div class="social_box">
+            <a href="#">
+              <img src="static/images/twitter.png" alt="" />
+            </a>
+            <a href="#">
+              <img src="static/images/linkedin.png" alt="" />
+            </a>
+            <a href="#">
+              <img src="static/images/instagram.png" alt="" />
+            </a>
+          </div>
+        </div>
+
+        <div class="info_main">
+          <div class="row">
+            <div class="col-md-3 col-lg-2">
+              <div class="info_link-box">
+                <h5>Useful Links</h5>
+                <ul>
+                  <li class="active">
+                    <a class="" href="index">Home</a>
+                  </li>
+                  <li>
+                    <a href="about">About</a>
+                  </li>
+                  <li>
+                    <a href="features">Features</a>
+                  </li>
+                  <li>
+                    <a href="contact">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-md-3 col-lg-2 offset-lg-1">
+              <h5>Information</h5>
+              <p>
+                FraudDetect360 uses advanced machine learning to monitor transactions, preventing fraud in real-time for
+                secure and seamless financial experiences.
+              </p>
+            </div>
+            <div class="col-md-3 offset-lg-1">
+              <div class="info_form">
+                <h5>Newsletter</h5>
+                <form action="">
+                  <input type="email" placeholder="Email" />
+                  <button>Subscribe</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-9 col-md-10 mx-auto">
+            <div class="info_contact layout_padding2">
+              <div class="row">
+                <div class="col-md-3">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src="static/images/location.png" alt="" />
+                    </div>
+                    <div class="detail-box">
+                      <h6>Location</h6>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-4">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src="static/images/mail.png" alt="" />
+                    </div>
+                    <div class="detail-box">
+                      <h6>support@FraudDetect360.com</h6>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-md-5">
+                  <a href="#" class="link-box">
+                    <div class="img-box">
+                      <img src="static/images/call.png" alt="" />
+                    </div>
+                    <div class="detail-box">
+                      <h6>Call +91 9922990078</h6>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end info section -->
+  
+    <!-- footer section -->
+    <footer class="container-fluid footer_section ">
+      <div class="container">
+        <p>
+          &copy; <span id="displayDate"></span> All Rights Reserved By FraudDetect360
+        </p>
+      </div>
+    </footer>
+    <!-- end  footer section -->
+  
+  
+    <script src="static/js/jquery-3.4.1.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/custom.js"></script>
+    <script src="static/js/login.js"><script>
+  
+  
+  </body>
+  </body>
+  
+  </html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Results</title>
+    <style>
+      .table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      .table,
+      .table th,
+      .table td {
+        border: 1px solid black;
+      }
+      .table th,
+      .table td {
+        padding: 8px;
+        text-align: left;
+      }
+      .table-striped tbody tr:nth-of-type(odd) {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Prediction Results</h1>
+    <div>{{ table|safe }}</div>
+    <div>
+      <h2>Fraudulent vs Non-Fraudulent Transactions</h2>
+      <img src="data:image/png;base64,{{ plot_url }}" />
+    </div>
+    <a href="/">Go back</a>
+  </body>
+</html>

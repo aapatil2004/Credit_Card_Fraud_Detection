@@ -1,0 +1,16 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+*.bak
+*.tmp
+*.log
+*.db
+*.sqlite
+model.pkl
+practice.ipynb
+creditcard.csv
+finaldataset.csv

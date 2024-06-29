@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+    <style>
+      body {
+        background-color: #f7f9fc;
+        font-family: Arial, sans-serif;
+      }
+      .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      h2 {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .btn {
+        display: block;
+        width: 200px;
+        margin: 20px auto;
+        padding: 10px;
+        background: #007bff;
+        border: none;
+        color: #fff;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+      }
+      .btn:hover {
+        background: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>Welcome, {{ current_user.username }}</h2>
+      <a href="/index" class="btn">Continue to Home page</a>
+      <a href="{{ url_for('logout') }}" class="btn">Logout</a>
+    </div>
+  </body>
+</html>
