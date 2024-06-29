@@ -10,6 +10,10 @@
     <p>The accuracy score is {{accuracy}}</p>
     <p>The roc_auc score is {{roc_auc}}</p>
     <p>The f1 score is {{f1}}</p>
+    <h2>The roc-auc curve for the Xgboost model</h2>
+    <div style="text-align: center;">
+      <img src="image.jpg" alt="The curve">
+    </div>
     <h1>Prediction Result</h1>
     {% if prediction == 1 %}
       <p>The transaction is likely to be fraudulent.</p>
