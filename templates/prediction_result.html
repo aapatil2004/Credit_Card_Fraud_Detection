@@ -1,0 +1,32 @@
+<!-- prediction_result.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediction Result</title>
+  </head>
+  <body>
+    <h1>Some perfromance regarding Model trainng</h1>
+    <p>The accuracy score is {{accuracy}}</p>
+    <p>The roc_auc score is {{roc_auc}}</p>
+    <p>The f1 score is {{f1}}</p>
+    <h1>Prediction Result</h1>
+    {% if prediction == 1 %}
+      <p>The transaction is likely to be fraudulent.</p>
+    {% elif prediction == 0 %}
+      <p>The transaction is likely to be legitimate.</p>
+    {% else %}
+      <p>Unable to make a prediction.</p>
+    {% endif %}
+    <!-- <h1>perfromance metrics regarding the prediction made by the model</h1>
+    <p>The accuracy is {{accuracy_new}}</p>
+    <p>The roc_auc score is {{roc_auc_new}}</p>
+    <p>The f1 score is {{ f1_new}}</p> -->
+    <!-- <p>The accuracy of the prediction is {{accuracy_score}}</p> -->
+    
+    <br>
+    <a href="{{ url_for('features') }}"><button>Back to Features</button></a>
+
+  </body>
+  </body>
+</html>

@@ -24,12 +24,12 @@ def main():
     final_model=model_training.train_model(x_train_smt,y_train_smt)
 
     #Testing the model
-    y_pred_initial=model_testing.test_model(final_model,x_test_scaled)
+    y_pred_initial,time_taken_initial=model_testing.test_model(final_model,x_test_scaled)
 
     #Evaluating the model
     model_testing.evaluate_model(y_test,y_pred_initial)
 
-    filepath_newdata=input("Enter the filepath./n")
+    filepath_newdata=input("Enter the filepath:-\n")
     new_data=data_preprocessing.load_data(filepath_newdata)
 
     #Predicting
