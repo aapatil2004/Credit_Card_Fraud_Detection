@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prediction Result</title>
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}"> -->
+    <link rel="stylesheet" type="text/css" href="static/css/result.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Model Performance Metrics</h1>
+      <p>The accuracy score is {{accuracy}}</p>
+      <p>The ROC AUC score is {{roc_auc}}</p>
+      <p>The F1 score is {{f1}}</p>
+
+      <h2>Performance Metrics Explained</h2>
+      <p><strong>Accuracy:</strong> The ratio of correctly predicted instances to the total instances. It is calculated as:</p>
+      <p style="font-style: italic;">Accuracy = (TP + TN) / (TP + TN + FP + FN)</p>
+      <p>where TP is True Positives, TN is True Negatives, FP is False Positives, and FN is False Negatives.</p>
+
+      <p><strong>ROC AUC Score:</strong> The Area Under the Receiver Operating Characteristic Curve. This metric evaluates the ability of the model to discriminate between positive and negative classes. A higher score indicates better performance.</p>
+      <p>ROC AUC is calculated by plotting the True Positive Rate (TPR) against the False Positive Rate (FPR) at various threshold settings and calculating the area under this curve.</p>
+
+      <p><strong>F1 Score:</strong> The harmonic mean of precision and recall, providing a balance between the two. It is especially useful for imbalanced datasets. It is calculated as:</p>
+      <p style="font-style: italic;">F1 Score = 2 * (Precision * Recall) / (Precision + Recall)</p>
+      <p>where Precision = TP / (TP + FP) and Recall = TP / (TP + FN).</p>
+
+      <h1>Prediction Result</h1>
+      {% if prediction == 1 %}
+        <p>The transaction is likely to be fraudulent.</p>
+      {% elif prediction == 0 %}
+        <p>The transaction is likely to be legitimate.</p>
+      {% else %}
+        <p>Unable to make a prediction.</p>
+      {% endif %}
+      
+      <div class="button-container">
+        <a href="{{ url_for('features') }}"><button>Back to Features</button></a>
+      </div>
+    </div>
+  </body>
+</html>

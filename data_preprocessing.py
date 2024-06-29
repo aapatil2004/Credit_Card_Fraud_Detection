@@ -18,16 +18,18 @@ def split_data(data):
 
 def scale_data(x_train,x_test):
     scaler=RobustScaler()
+    print("Scaling the data.\n")
     x_train=scaler.fit_transform(x_train)
     x_test=scaler.transform(x_test)
+    print("Data Scaling completed.\n")
     return x_train,x_test
 
 def balance_data(x_train,y_train):
     print('Original dataset shape %s' % Counter(y_train))
-
+    print("Handling the imbalanced dataset.\n")
     smt = SMOTE(random_state=42)
     x_train_smt, y_train_smt = smt.fit_resample(x_train, y_train)
-
+    print("Imbalanced dataset has beed handled.\n")
     print('Resampled dataset shape %s' % Counter(y_train_smt))
 
     return x_train_smt,y_train_smt

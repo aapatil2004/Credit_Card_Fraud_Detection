@@ -1,49 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <!-- Basic -->
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- Mobile Metas -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <!-- Site Metas -->
-    <meta
-      name="keywords"
-      content="Credit Card Fraud Detection, Fraud Prevention, Secure Transactions"
-    />
-    <meta
-      name="description"
-      content="Protect your financial transactions with our advanced credit card fraud detection system."
-    />
-    <meta name="author" content="Credit Card Fraud Detection Team" />
-
-    <title>Credit Card Fraud Detection</title>
-
-    <!-- bootstrap core css -->
-    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
-
+    <title>Features</title>
     <link
-      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
       rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/bootstrap.css') }}"
     />
-    <!-- Custom styles for this template -->
-    <link href="static/css/style.css" rel="stylesheet" />
-    <!-- responsive style -->
-    <link href="static/css/responsive.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
   </head>
-
   <body class="sub_page">
     <div class="hero_area">
       <!-- header section starts -->
       <header class="header_section">
-        <div class="container-fluid">
+        <div class="container">
           <nav class="navbar navbar-expand-lg custom_nav-container">
-            <a class="navbar-brand" href="index.html">
-              <img src="static/images/logo.png" alt="" />
-              <span> FraudDetect360 </span>
+            <a class="navbar-brand" href="/">
+              <span> Fraud Detection </span>
             </a>
             <button
               class="navbar-toggler"
@@ -54,518 +31,810 @@
               aria-expanded="false"
               aria-label="Toggle navigation"
             >
-              <span class="navbar-toggler-icon"></span>
+              <span class=""> </span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" href="/index">Home</a>
-                </li>
-                <li class="nav-item active">
-                  <a class="nav-link" href="about">About</a>
+                  <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="features">Features</a>
+                  <a class="nav-link" href="/about"> About</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="contact">Contact</a>
+                  <a class="nav-link" href="/features"> Features </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/contact">Contact us</a>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/dashboard">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/register">Register</a>
+                </li>
+                {% endif %}
               </ul>
-              <div class="user_option">
-                <a href="logout">
-                  <span> Log Out </span>
-                </a>
-              </div>
-            </div>
-            <div>
-              <div class="custom_menu-btn">
-                <button>
-                  <span class="s-1"></span>
-                  <span class="s-2"></span>
-                  <span class="s-3"></span>
-                </button>
-              </div>
             </div>
           </nav>
         </div>
       </header>
+      <!-- end header section -->
     </div>
 
-<body class="sub_page">
-  <!-- features section -->
-  <section class="features_section layout_padding">
-    <div class="container">
-      <div class="heading_container_for_features">
-        <h2>Features of Our Credit Card Fraud Detection System</h2>
-        <p>
-          Our system offers a comprehensive suite of features designed to
-          detect and prevent fraudulent activities in real-time.
-        </p>
-      </div>
-
-      <!-- Your feature boxes here -->
-
-      <div class="row mt-4">
-        <div class="col-md-12">
-          <div class="feature-box">
-            <div class="detail-box">
-              <h5>Transaction Prediction</h5>
-              <p>
-                Enter transaction details to predict whether it is legitimate
-                or fraudulent.
-              </p>
-              <form action="/predict_transaction" method="POST">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="Time">Time:</label>
-                      <input type="number" id="Time" name="Time" class="form-control" required min="0" max="172792" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V1">V1:</label>
-                      <input type="number" step="0.0001" id="V1" name="V1" class="form-control" required min="-56.4075"
-                        max="2.4549" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V2">V2:</label>
-                      <input type="number" step="0.0001" id="V2" name="V2" class="form-control" required min="-72.7157"
-                        max="22.0577" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V3">V3:</label>
-                      <input type="number" step="0.0001" id="V3" name="V3" class="form-control" required min="-48.3256"
-                        max="9.3826" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V4">V4:</label>
-                      <input type="number" step="0.0001" id="V4" name="V4" class="form-control" required min="-5.68317"
-                        max="16.8753" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V5">V5:</label>
-                      <input type="number" step="0.0001" id="V5" name="V5" class="form-control" required min="-113.743"
-                        max="34.8017" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V6">V6:</label>
-                      <input type="number" step="0.0001" id="V6" name="V6" class="form-control" required min="-26.1605"
-                        max="73.3016" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V7">V7:</label>
-                      <input type="number" step="0.0001" id="V7" name="V7" class="form-control" required min="-43.5572"
-                        max="120.589" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V8">V8:</label>
-                      <input type="number" step="0.0001" id="V8" name="V8" class="form-control" required min="-73.2167"
-                        max="20.0072" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V9">V9:</label>
-                      <input type="number" step="0.0001" id="V9" name="V9" class="form-control" required min="-13.4341"
-                        max="15.5940" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V10">V10:</label>
-                      <input type="number" step="0.0001" id="V10" name="V10" class="form-control" required
-                        min="-24.5883" max="23.7451" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V11">V11:</label>
-                      <input type="number" step="0.0001" id="V11" name="V11" class="form-control" required min="-4.7974"
-                        max="12.0189" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V12">V12:</label>
-                      <input type="number" step="0.0001" id="V12" name="V12" class="form-control" required
-                        min="-18.6837" max="7.8484" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V13">V13:</label>
-                      <input type="number" step="0.0001" id="V13" name="V13" class="form-control" required min="-5.7919"
-                        max="7.1269" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V14">V14:</label>
-                      <input type="number" step="0.0001" id="V14" name="V14" class="form-control" required
-                        min="-19.2143" max="10.5268" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V15">V15:</label>
-                      <input type="number" step="0.0001" id="V15" name="V15" class="form-control" required min="-4.4989"
-                        max="8.8777" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V19">V19:</label>
-                      <input type="number" step="0.0001" id="V19" name="V19" class="form-control" required min="-9.4987"
-                        max="5.0411" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V20">V20:</label>
-                      <input type="number" step="0.0001" id="V20" name="V20" class="form-control" required
-                        min="-54.4977" max="39.4209" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V21">V21:</label>
-                      <input type="number" step="0.0001" id="V21" name="V21" class="form-control" required
-                        min="-34.8304" max="27.2028" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V22">V22:</label>
-                      <input type="number" step="0.0001" id="V22" name="V22" class="form-control" required
-                        min="-10.9331" max="10.5031" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V23">V23:</label>
-                      <input type="number" step="0.0001" id="V23" name="V23" class="form-control" required
-                        min="-44.8077" max="22.5284" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V24">V24:</label>
-                      <input type="number" step="0.0001" id="V24" name="V24" class="form-control" required min="-2.8366"
-                        max="4.5845" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V25">V25:</label>
-                      <input type="number" step="0.0001" id="V25" name="V25" class="form-control" required
-                        min="-10.2954" max="7.5196" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V26">V26:</label>
-                      <input type="number" step="0.0001" id="V26" name="V26" class="form-control" required min="-2.6046"
-                        max="3.5173" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V27">V27:</label>
-                      <input type="number" step="0.0001" id="V27" name="V27" class="form-control" required
-                        min="-22.5657" max="31.6122" />
-                    </div>
-                    <div class="form-group">
-                      <label for="V28">V28:</label>
-                      <input type="number" step="0.0001" id="V28" name="V28" class="form-control" required
-                        min="-15.4301" max="33.8478" />
-                    </div>
-                    <div class="form-group">
-                      <label for="Amount">Amount:</label>
-                      <input type="number" step="0.01" id="Amount" name="Amount" class="form-control" required
-                        min="0" />
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <label for="geometry">Select City:</label>
-                      <select id="geometry" name="geometry" class="form-control">
-                        <!-- Add more options for geometry here -->
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <button type="submit" class="btn btn-primary">Predict</button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- info section -->
-
-  <section class="info_section">
-    <div class="info_container layout_padding-top">
+    <!-- features section -->
+    <section class="features_section layout_padding">
       <div class="container">
-        <div class="info_top">
-          <div class="info_logo">
-            <img src="static/images/logo.png" alt="" />
-            <span> Credit Card Fraud Detection </span>
-          </div>
-          <div class="social_box">
-            <a href="#">
-              <img src="static/images/twitter.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="static/images/linkedin.png" alt="" />
-            </a>
-            <a href="#">
-              <img src="static/images/instagram.png" alt="" />
-            </a>
-          </div>
+        <div class="heading_container_for_features">
+          <h2>Features of Our Credit Card Fraud Detection System</h2>
+          <p>
+            Our system offers a comprehensive suite of features designed to
+            detect and prevent fraudulent activities in real-time.
+          </p>
         </div>
 
-        <div class="info_main">
-          <div class="row">
-            <div class="col-md-3 col-lg-2">
-              <div class="info_link-box">
-                <h5>Useful Links</h5>
-                <ul>
-                  <li class="active">
-                    <a class="" href="index">Home</a>
-                  </li>
-                  <li>
-                    <a href="about">About</a>
-                  </li>
-                  <li>
-                    <a href="features">Features</a>
-                  </li>
-                  <li>
-                    <a href="contact">Contact</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="col-md-3 col-lg-2 offset-lg-1">
-              <h5>Information</h5>
-              <p>
-                FraudDetect360 uses advanced machine learning to monitor transactions, preventing fraud in real-time for
-                secure and seamless financial experiences.
-              </p>
-            </div>
-            <div class="col-md-3 offset-lg-1">
-              <div class="info_form">
-                <h5>Newsletter</h5>
-                <form action="">
-                  <input type="email" placeholder="Email" />
-                  <button>Subscribe</button>
+        <!-- Your feature boxes here -->
+
+        <div class="row mt-4">
+          <div class="col-md-12">
+            <div class="feature-box">
+              <div class="detail-box">
+                <h5>Transaction Prediction</h5>
+                <p>
+                  Enter transaction details to predict whether it is legitimate
+                  or fraudulent.
+                </p>
+                <form action="/predict_transaction" method="POST">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="Time">Time:</label>
+                        <input
+                          type="number"
+                          id="Time"
+                          name="Time"
+                          class="form-control"
+                          required
+                          min="0"
+                          max="172792"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V1">V1:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V1"
+                          name="V1"
+                          class="form-control"
+                          required
+                          min="-56.4075"
+                          max="2.4549"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V2">V2:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V2"
+                          name="V2"
+                          class="form-control"
+                          required
+                          min="-72.7157"
+                          max="22.0577"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V3">V3:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V3"
+                          name="V3"
+                          class="form-control"
+                          required
+                          min="-48.3256"
+                          max="9.3826"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V4">V4:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V4"
+                          name="V4"
+                          class="form-control"
+                          required
+                          min="-5.68317"
+                          max="16.8753"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V5">V5:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V5"
+                          name="V5"
+                          class="form-control"
+                          required
+                          min="-113.743"
+                          max="34.8017"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V6">V6:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V6"
+                          name="V6"
+                          class="form-control"
+                          required
+                          min="-26.1605"
+                          max="73.3016"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V7">V7:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V7"
+                          name="V7"
+                          class="form-control"
+                          required
+                          min="-43.5572"
+                          max="120.589"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V8">V8:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V8"
+                          name="V8"
+                          class="form-control"
+                          required
+                          min="-73.2167"
+                          max="20.0072"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V9">V9:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V9"
+                          name="V9"
+                          class="form-control"
+                          required
+                          min="-13.4341"
+                          max="15.5940"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V10">V10:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V10"
+                          name="V10"
+                          class="form-control"
+                          required
+                          min="-24.5883"
+                          max="23.7451"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V11">V11:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V11"
+                          name="V11"
+                          class="form-control"
+                          required
+                          min="-4.7974"
+                          max="12.0189"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V12">V12:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V12"
+                          name="V12"
+                          class="form-control"
+                          required
+                          min="-18.6837"
+                          max="7.8484"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V13">V13:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V13"
+                          name="V13"
+                          class="form-control"
+                          required
+                          min="-5.7919"
+                          max="7.1269"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V14">V14:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V14"
+                          name="V14"
+                          class="form-control"
+                          required
+                          min="-19.2143"
+                          max="10.5268"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V15">V15:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V15"
+                          name="V15"
+                          class="form-control"
+                          required
+                          min="-4.4989"
+                          max="8.8777"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V19">V19:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V19"
+                          name="V19"
+                          class="form-control"
+                          required
+                          min="-9.4987"
+                          max="5.0411"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V20">V20:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V20"
+                          name="V20"
+                          class="form-control"
+                          required
+                          min="-54.4977"
+                          max="39.4209"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V21">V21:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V21"
+                          name="V21"
+                          class="form-control"
+                          required
+                          min="-34.8304"
+                          max="27.2028"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V22">V22:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V22"
+                          name="V22"
+                          class="form-control"
+                          required
+                          min="-10.9331"
+                          max="10.5031"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V23">V23:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V23"
+                          name="V23"
+                          class="form-control"
+                          required
+                          min="-44.8077"
+                          max="22.5284"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V24">V24:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V24"
+                          name="V24"
+                          class="form-control"
+                          required
+                          min="-2.8366"
+                          max="4.5845"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V25">V25:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V25"
+                          name="V25"
+                          class="form-control"
+                          required
+                          min="-10.2954"
+                          max="7.5196"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V26">V26:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V26"
+                          name="V26"
+                          class="form-control"
+                          required
+                          min="-2.6046"
+                          max="3.5173"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V27">V27:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V27"
+                          name="V27"
+                          class="form-control"
+                          required
+                          min="-22.5657"
+                          max="31.6122"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="V28">V28:</label>
+                        <input
+                          type="number"
+                          step="0.0001"
+                          id="V28"
+                          name="V28"
+                          class="form-control"
+                          required
+                          min="-15.4301"
+                          max="33.8478"
+                        />
+                      </div>
+                      <div class="form-group">
+                        <label for="Amount">Amount:</label>
+                        <input
+                          type="number"
+                          step="0.01"
+                          id="Amount"
+                          name="Amount"
+                          class="form-control"
+                          required
+                          min="0"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <label for="geometry">Select City:</label>
+                        <select
+                          id="geometry"
+                          name="geometry"
+                          class="form-control"
+                        >
+                          <!-- Add more options for geometry here -->
+                          <option value="1">Adelaide, Australia</option>
+                          <option value="2">Allentown, Pennsylvania</option>
+                          <option value="3">Abu Dhabi, UAE</option>
+                          <option value="4">Karliova, Turkey</option>
+                          <option value="5">Chicago, Illinois, USA.</option>
+                          <option vallu="6">Lviv, Ukraine</option>
+                          <option value="7">Frankfurt ,Germany</option>
+                          <option value="8">San Deigo, California, USA</option>
+                          <option value="9">Washington D.C. USA</option>
+                          <option value="10">Islamabad ,Pakistan</option>
+                          <option value="11">Fremont, California, USA</option>
+                          <option value="12">Jacksonville, Florida, USA.</option>
+                          <option value="13">Houston, Texas, USA</option>
+                          <option value="14">Wellington, New Zeeland</option>
+                          <option value="15">New York City, USA</option>
+                          <option value="16">Minneapolis, Minnesota, USA.</option>
+                          <option value="17">Denver, Colorado, USA</option>
+                          <option value="18">Fort Worth, Texas ,USA</option>
+                          <option value="19">Larissa ,Greece</option>
+                          <option value="20">Austin, Texas, USA</option>
+                          <option value="21">Gainesville, Florida, USA.</option>
+                          <option value="22">Seattle, Washington,USA</option>
+                          <option value="23">Alexandria, Egypt</option>
+                          <option value="24">Beijing, China</option>
+                          <option value="25">Kuala Lampur, Malaysia</option>
+                          <option value="26">Ahmedabad, India</option>
+                          <option value="27">Mexico City, Mexico</option>
+                          <option value="28">New Orleans, Louisiana, USA.</option>
+                          <option value="29">Santiago, Chile</option>
+                          <option value="30">Colombus, Ohio, USA</option>
+                          <option value="31">El Paso,Texas, USA</option>
+                          <option value="32">Madrid, Spain</option>
+                          <option value="33">Melbourne, Australia</option>
+                          <option value="34">Singapore, Republic of Singapore</option>
+                          <option value="35">Phoenix, Arizona, USA</option>
+                          <option value="36">Oklahoma City, Oklahoma, USA.</option>
+                          <option value="37">Buenos Aires, Argentina.</option>
+                          <option value="38">London, United Kingdom</option>
+                          <option value="39">Porto, Portugal</option>
+                          <option value="40">Seoul, South Korea</option>
+                          <option value="41">Portland, Oregon, USA</option>
+                          <option value="42">Los Angeles, California, USA</option>
+                          <option value="43">Indianapolis, Indiana, USA</option>
+                          <option value="44">Bangkok, Thailand</option>
+                          <option value="45">Valparaiso, Chile</option>
+                          <option value="46">Hobart, Tasmania, Australia</option>
+                          <option value="47">Charlotte, North Carolina, USA.</option>
+                          <option value="48">New Delhi, India</option>
+                          <option value="49">Vancouver, British Columbia, Canada.</option>
+                          <option value="50">Hong Kong</option>
+                          <option value="51">Cairo Egypt</option>
+                          <option value="52">San Francisco, California, USA</option>
+                          <option value="53">Barcelona, Spain</option>
+                          <option value="54">Rome, Italy</option>
+                          <option value="55">Berlin, Germany</option>
+                          <option value="56">St. Louis, Missouri, USA.</option>
+                          <option value="57">Atlanta, Georgia, USA</option>
+                          <option value="58">Miami, Florida, USA</option>
+                          <option value="59">Kansas City, Missouri, USA.</option>
+                          <option value="60">Paris, France</option>
+                          <option value="61">Nashville, Tennessee, USA.</option>
+                          <option value="62">Vilnius, Lithuania.</option>
+                          <option value="63">Tokyo, Japan</option>
+                          <option value="64">Memphis, Tennessee, USA.</option>
+                          <option value="65">Boston, Massachusetts, USA.</option>
+                          <option value="66">Odesse, Ukraine</option>
+                          <option value="67">Calgary, Alberta, Canada</option>
+                          <option value="68">Funchal, Madeira, Portugal.</option>
+                          <option value="69">Cleveland, Ohio,USA</option>
+                          <option value="70">Cluj-Napoca, Romania.</option>
+                          <option value="71">Toronto, Ontairo, Canada</option>
+                          <option value="72">Sydney, Australia</option>
+                          <option value="73">Brisbane, Australia</option>
+                          <option value="74">Tallin, Estonia</option>
+                          
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Predict</button>
                 </form>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-9 col-md-10 mx-auto">
-            <div class="info_contact layout_padding2">
-              <div class="row">
-                <div class="col-md-3">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="static/images/location.png" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h6>Location</h6>
-                    </div>
-                  </a>
+      </div>
+    </section>
+
+    <section class="info_section">
+      <div class="info_container layout_padding-top">
+        <div class="container">
+          <div class="info_top">
+            <div class="info_logo">
+              <img src="static/images/logo.png" alt="" />
+              <span> Credit Card Fraud Detection </span>
+            </div>
+            <div class="social_box">
+              <a href="#">
+                <img src="static/images/twitter.png" alt="" />
+              </a>
+              <a href="#">
+                <img src="static/images/linkedin.png" alt="" />
+              </a>
+              <a href="#">
+                <img src="static/images/instagram.png" alt="" />
+              </a>
+            </div>
+          </div>
+
+          <div class="info_main">
+            <div class="row">
+              <div class="col-md-3 col-lg-2">
+                <div class="info_link-box">
+                  <h5>Useful Links</h5>
+                  <ul>
+                    <li class="active">
+                      <a class="" href="index">Home</a>
+                    </li>
+                    <li>
+                      <a href="about">About</a>
+                    </li>
+                    <li>
+                      <a href="features">Features</a>
+                    </li>
+                    <li>
+                      <a href="contact">Contact</a>
+                    </li>
+                  </ul>
                 </div>
-                <div class="col-md-4">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="static/images/mail.png" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h6>support@FraudDetect360.com</h6>
-                    </div>
-                  </a>
+              </div>
+              <div class="col-md-3 col-lg-2 offset-lg-1">
+                <h5>Information</h5>
+                <p>
+                  For more information about our platform and services, feel
+                  free to get in touch with us.
+                </p>
+              </div>
+              <div class="col-md-3 offset-lg-1">
+                <div class="info_form">
+                  <h5>Newsletter</h5>
+                  <form action="">
+                    <input type="email" placeholder="Email" />
+                    <button>Subscribe</button>
+                  </form>
                 </div>
-                <div class="col-md-5">
-                  <a href="#" class="link-box">
-                    <div class="img-box">
-                      <img src="static/images/call.png" alt="" />
-                    </div>
-                    <div class="detail-box">
-                      <h6>Call +91 9922990078</h6>
-                    </div>
-                  </a>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-9 col-md-10 mx-auto">
+              <div class="info_contact layout_padding2">
+                <div class="row">
+                  <div class="col-md-3">
+                    <a href="#" class="link-box">
+                      <div class="img-box">
+                        <img src="static/images/location.png" alt="" />
+                      </div>
+                      <div class="detail-box">
+                        <h6>Location</h6>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-4">
+                    <a href="#" class="link-box">
+                      <div class="img-box">
+                        <img src="static/images/mail.png" alt="" />
+                      </div>
+                      <div class="detail-box">
+                        <h6>demo@gmail.com</h6>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-md-5">
+                    <a href="#" class="link-box">
+                      <div class="img-box">
+                        <img src="static/images/call.png" alt="" />
+                      </div>
+                      <div class="detail-box">
+                        <h6>Call +91 9922990078</h6>
+                      </div>
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-  <!-- end info section --> 
+    </section>
+    <!-- end info section -->
 
-  <!-- footer section -->
-  <footer class="container-fluid footer_section">
-    <div class="container">
-      <p>
-        &copy; <span id="displayDate"></span> All Rights Reserved By FraudDetect360
-      </p>
-    </div>
-  </footer>
-  <!-- end footer section -->
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const cityData = {
-        cities: [
-          { name: "New York", coordinates: { lat: 40.7128, lng: -74.006 } },
-          {
-            name: "Los Angeles",
-            coordinates: { lat: 34.0522, lng: -118.2437 },
-          },
-          { name: "Chicago", coordinates: { lat: 41.8781, lng: -87.6298 } },
-          { name: "Houston", coordinates: { lat: 29.7604, lng: -95.3698 } },
-          { name: "Phoenix", coordinates: { lat: 33.4484, lng: -112.074 } },
-          {
-            name: "Philadelphia",
-            coordinates: { lat: 39.9526, lng: -75.1652 },
-          },
-          {
-            name: "San Antonio",
-            coordinates: { lat: 29.4241, lng: -98.4936 },
-          },
-          {
-            name: "San Diego",
-            coordinates: { lat: 32.7157, lng: -117.1611 },
-          },
-          { name: "Dallas", coordinates: { lat: 32.7767, lng: -96.797 } },
-          { name: "San Jose", coordinates: { lat: 37.3382, lng: -121.8863 } },
-          { name: "Austin", coordinates: { lat: 30.2672, lng: -97.7431 } },
-          {
-            name: "Jacksonville",
-            coordinates: { lat: 30.3322, lng: -81.6557 },
-          },
-          {
-            name: "San Francisco",
-            coordinates: { lat: 37.7749, lng: -122.4194 },
-          },
-          {
-            name: "Indianapolis",
-            coordinates: { lat: 39.7684, lng: -86.1581 },
-          },
-          { name: "Columbus", coordinates: { lat: 39.9612, lng: -82.9988 } },
-          {
-            name: "Fort Worth",
-            coordinates: { lat: 32.7555, lng: -97.3308 },
-          },
-          { name: "Charlotte", coordinates: { lat: 35.2271, lng: -80.8431 } },
-          { name: "Detroit", coordinates: { lat: 42.3314, lng: -83.0458 } },
-          { name: "El Paso", coordinates: { lat: 31.7619, lng: -106.485 } },
-          { name: "Memphis", coordinates: { lat: 35.1495, lng: -90.049 } },
-          { name: "Boston", coordinates: { lat: 42.3601, lng: -71.0589 } },
-          { name: "Seattle", coordinates: { lat: 47.6062, lng: -122.3321 } },
-          { name: "Denver", coordinates: { lat: 39.7392, lng: -104.9903 } },
-          {
-            name: "Washington",
-            coordinates: { lat: 38.8951, lng: -77.0369 },
-          },
-          { name: "Nashville", coordinates: { lat: 36.1627, lng: -86.7816 } },
-          { name: "Baltimore", coordinates: { lat: 39.2904, lng: -76.6122 } },
-          {
-            name: "Oklahoma City",
-            coordinates: { lat: 35.4676, lng: -97.5164 },
-          },
-          {
-            name: "Las Vegas",
-            coordinates: { lat: 36.1699, lng: -115.1398 },
-          },
-          {
-            name: "Louisville",
-            coordinates: { lat: 38.2527, lng: -85.7585 },
-          },
-          { name: "Milwaukee", coordinates: { lat: 43.0389, lng: -87.9065 } },
-          {
-            name: "Albuquerque",
-            coordinates: { lat: 35.0844, lng: -106.6504 },
-          },
-          { name: "Tucson", coordinates: { lat: 32.2226, lng: -110.9747 } },
-          { name: "Fresno", coordinates: { lat: 36.7378, lng: -119.7871 } },
-          {
-            name: "Sacramento",
-            coordinates: { lat: 38.5816, lng: -121.4944 },
-          },
-          {
-            name: "Kansas City",
-            coordinates: { lat: 39.0997, lng: -94.5786 },
-          },
-          { name: "Mesa", coordinates: { lat: 33.4152, lng: -111.8315 } },
-          { name: "Atlanta", coordinates: { lat: 33.749, lng: -84.388 } },
-          {
-            name: "Colorado Springs",
-            coordinates: { lat: 38.8339, lng: -104.8214 },
-          },
-          {
-            name: "Virginia Beach",
-            coordinates: { lat: 36.8529, lng: -75.978 },
-          },
-          { name: "Raleigh", coordinates: { lat: 35.7796, lng: -78.6382 } },
-          { name: "Omaha", coordinates: { lat: 41.2565, lng: -95.9345 } },
-          { name: "Miami", coordinates: { lat: 25.7617, lng: -80.1918 } },
-          { name: "Cleveland", coordinates: { lat: 41.4993, lng: -81.6944 } },
-          { name: "Tulsa", coordinates: { lat: 36.1539, lng: -95.9928 } },
-          { name: "Oakland", coordinates: { lat: 37.8049, lng: -122.2711 } },
-          {
-            name: "Minneapolis",
-            coordinates: { lat: 44.9778, lng: -93.265 },
-          },
-          { name: "Wichita", coordinates: { lat: 37.6872, lng: -97.3301 } },
-          { name: "Arlington", coordinates: { lat: 32.7357, lng: -97.1081 } },
-          {
-            name: "Bakersfield",
-            coordinates: { lat: 35.3733, lng: -119.0187 },
-          },
-          { name: "Tampa", coordinates: { lat: 27.9506, lng: -82.4572 } },
-          { name: "Aurora", coordinates: { lat: 39.7294, lng: -104.8319 } },
-          { name: "Anaheim", coordinates: { lat: 33.8366, lng: -117.9143 } },
-          { name: "Honolulu", coordinates: { lat: 21.3069, lng: -157.8583 } },
-          { name: "San Juan", coordinates: { lat: 18.4655, lng: -66.1057 } },
-          {
-            name: "Chula Vista",
-            coordinates: { lat: 32.6401, lng: -117.0842 },
-          },
-          { name: "Boise", coordinates: { lat: 43.615, lng: -116.2023 } },
-          {
-            name: "Salt Lake City",
-            coordinates: { lat: 40.7608, lng: -111.891 },
-          },
-          { name: "Des Moines", coordinates: { lat: 41.5867, lng: -93.625 } },
-          { name: "Jackson", coordinates: { lat: 32.2988, lng: -90.1848 } },
-          {
-            name: "Birmingham",
-            coordinates: { lat: 33.5186, lng: -86.8104 },
-          },
-          { name: "Columbia", coordinates: { lat: 34.0007, lng: -81.0348 } },
-          { name: "Lexington", coordinates: { lat: 38.0406, lng: -84.5037 } },
-          { name: "Greensboro", coordinates: { lat: 36.0726, lng: -79.791 } },
-          { name: "Lubbock", coordinates: { lat: 33.5779, lng: -101.8552 } },
-          { name: "Augusta", coordinates: { lat: 33.4734, lng: -82.0105 } },
-          { name: "Killeen", coordinates: { lat: 31.1171, lng: -97.7278 } },
-          { name: "McKinney", coordinates: { lat: 33.1974, lng: -96.6398 } },
-          { name: "Cary", coordinates: { lat: 35.7915, lng: -78.7811 } },
-          { name: "Odessa", coordinates: { lat: 31.8457, lng: -102.3676 } },
-          { name: "McAllen", coordinates: { lat: 26.2034, lng: -98.23 } },
-          {
-            name: "Richardson",
-            coordinates: { lat: 32.9482, lng: -96.7291 },
-          },
-          {
-            name: "Chattanooga",
-            coordinates: { lat: 35.0456, lng: -85.3097 },
-          },
-          {
-            name: "Brownsville",
-            coordinates: { lat: 25.9017, lng: -97.4975 },
-          },
-          { name: "Longview", coordinates: { lat: 32.5007, lng: -94.7405 } },
-          { name: "Lawton", coordinates: { lat: 34.6058, lng: -98.3933 } },
-          {
-            name: "College Station",
-            coordinates: { lat: 30.6278, lng: -96.3344 },
-          },
-          { name: "Waco", coordinates: { lat: 31.5493, lng: -97.1467 } },
-          { name: "Macon", coordinates: { lat: 32.8407, lng: -83.6324 } },
-          { name: "Midland", coordinates: { lat: 31.9974, lng: -102.0779 } },
-          { name: "Beaumont", coordinates: { lat: 30.086, lng: -94.1018 } },
-          { name: "Sugar Land", coordinates: { lat: 29.6197, lng: -95.634 } },
-          { name: "Round Rock", coordinates: { lat: 30.5083, lng: -97.678 } },
-          { name: "Lewisville", coordinates: { lat: 33.0462, lng: -96.993 } },
-        ],
-      };
+    <!-- footer section -->
+    <footer class="container-fluid footer_section">
+      <div class="container">
+        <p>
+          &copy; <span id="displayDate"></span> All Rights Reserved By Our team
+        </p>
+      </div>
+    </footer>
+    <!-- end footer section -->
+    <!--script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const cityData = {
+          cities: [
+            { name: "New York", coordinates: { lat: 40.7128, lng: -74.006 } },
+            {
+              name: "Los Angeles",
+              coordinates: { lat: 34.0522, lng: -118.2437 },
+            },
+            { name: "Chicago", coordinates: { lat: 41.8781, lng: -87.6298 } },
+            { name: "Houston", coordinates: { lat: 29.7604, lng: -95.3698 } },
+            { name: "Phoenix", coordinates: { lat: 33.4484, lng: -112.074 } },
+            {
+              name: "Philadelphia",
+              coordinates: { lat: 39.9526, lng: -75.1652 },
+            },
+            {
+              name: "San Antonio",
+              coordinates: { lat: 29.4241, lng: -98.4936 },
+            },
+            {
+              name: "San Diego",
+              coordinates: { lat: 32.7157, lng: -117.1611 },
+            },
+            { name: "Dallas", coordinates: { lat: 32.7767, lng: -96.797 } },
+            { name: "San Jose", coordinates: { lat: 37.3382, lng: -121.8863 } },
+            { name: "Austin", coordinates: { lat: 30.2672, lng: -97.7431 } },
+            {
+              name: "Jacksonville",
+              coordinates: { lat: 30.3322, lng: -81.6557 },
+            },
+            {
+              name: "San Francisco",
+              coordinates: { lat: 37.7749, lng: -122.4194 },
+            },
+            {
+              name: "Indianapolis",
+              coordinates: { lat: 39.7684, lng: -86.1581 },
+            },
+            { name: "Columbus", coordinates: { lat: 39.9612, lng: -82.9988 } },
+            {
+              name: "Fort Worth",
+              coordinates: { lat: 32.7555, lng: -97.3308 },
+            },
+            { name: "Charlotte", coordinates: { lat: 35.2271, lng: -80.8431 } },
+            { name: "Detroit", coordinates: { lat: 42.3314, lng: -83.0458 } },
+            { name: "El Paso", coordinates: { lat: 31.7619, lng: -106.485 } },
+            { name: "Memphis", coordinates: { lat: 35.1495, lng: -90.049 } },
+            { name: "Boston", coordinates: { lat: 42.3601, lng: -71.0589 } },
+            { name: "Seattle", coordinates: { lat: 47.6062, lng: -122.3321 } },
+            { name: "Denver", coordinates: { lat: 39.7392, lng: -104.9903 } },
+            {
+              name: "Washington",
+              coordinates: { lat: 38.8951, lng: -77.0369 },
+            },
+            { name: "Nashville", coordinates: { lat: 36.1627, lng: -86.7816 } },
+            { name: "Baltimore", coordinates: { lat: 39.2904, lng: -76.6122 } },
+            {
+              name: "Oklahoma City",
+              coordinates: { lat: 35.4676, lng: -97.5164 },
+            },
+            {
+              name: "Las Vegas",
+              coordinates: { lat: 36.1699, lng: -115.1398 },
+            },
+            {
+              name: "Louisville",
+              coordinates: { lat: 38.2527, lng: -85.7585 },
+            },
+            { name: "Milwaukee", coordinates: { lat: 43.0389, lng: -87.9065 } },
+            {
+              name: "Albuquerque",
+              coordinates: { lat: 35.0844, lng: -106.6504 },
+            },
+            { name: "Tucson", coordinates: { lat: 32.2226, lng: -110.9747 } },
+            { name: "Fresno", coordinates: { lat: 36.7378, lng: -119.7871 } },
+            {
+              name: "Sacramento",
+              coordinates: { lat: 38.5816, lng: -121.4944 },
+            },
+            {
+              name: "Kansas City",
+              coordinates: { lat: 39.0997, lng: -94.5786 },
+            },
+            { name: "Mesa", coordinates: { lat: 33.4152, lng: -111.8315 } },
+            { name: "Atlanta", coordinates: { lat: 33.749, lng: -84.388 } },
+            {
+              name: "Colorado Springs",
+              coordinates: { lat: 38.8339, lng: -104.8214 },
+            },
+            {
+              name: "Virginia Beach",
+              coordinates: { lat: 36.8529, lng: -75.978 },
+            },
+            { name: "Raleigh", coordinates: { lat: 35.7796, lng: -78.6382 } },
+            { name: "Omaha", coordinates: { lat: 41.2565, lng: -95.9345 } },
+            { name: "Miami", coordinates: { lat: 25.7617, lng: -80.1918 } },
+            { name: "Cleveland", coordinates: { lat: 41.4993, lng: -81.6944 } },
+            { name: "Tulsa", coordinates: { lat: 36.1539, lng: -95.9928 } },
+            { name: "Oakland", coordinates: { lat: 37.8049, lng: -122.2711 } },
+            {
+              name: "Minneapolis",
+              coordinates: { lat: 44.9778, lng: -93.265 },
+            },
+            { name: "Wichita", coordinates: { lat: 37.6872, lng: -97.3301 } },
+            { name: "Arlington", coordinates: { lat: 32.7357, lng: -97.1081 } },
+            {
+              name: "Bakersfield",
+              coordinates: { lat: 35.3733, lng: -119.0187 },
+            },
+            { name: "Tampa", coordinates: { lat: 27.9506, lng: -82.4572 } },
+            { name: "Aurora", coordinates: { lat: 39.7294, lng: -104.8319 } },
+            { name: "Anaheim", coordinates: { lat: 33.8366, lng: -117.9143 } },
+            { name: "Honolulu", coordinates: { lat: 21.3069, lng: -157.8583 } },
+            { name: "San Juan", coordinates: { lat: 18.4655, lng: -66.1057 } },
+            {
+              name: "Chula Vista",
+              coordinates: { lat: 32.6401, lng: -117.0842 },
+            },
+            { name: "Boise", coordinates: { lat: 43.615, lng: -116.2023 } },
+            {
+              name: "Salt Lake City",
+              coordinates: { lat: 40.7608, lng: -111.891 },
+            },
+            { name: "Des Moines", coordinates: { lat: 41.5867, lng: -93.625 } },
+            { name: "Jackson", coordinates: { lat: 32.2988, lng: -90.1848 } },
+            {
+              name: "Birmingham",
+              coordinates: { lat: 33.5186, lng: -86.8104 },
+            },
+            { name: "Columbia", coordinates: { lat: 34.0007, lng: -81.0348 } },
+            { name: "Lexington", coordinates: { lat: 38.0406, lng: -84.5037 } },
+            { name: "Greensboro", coordinates: { lat: 36.0726, lng: -79.791 } },
+            { name: "Lubbock", coordinates: { lat: 33.5779, lng: -101.8552 } },
+            { name: "Augusta", coordinates: { lat: 33.4734, lng: -82.0105 } },
+            { name: "Killeen", coordinates: { lat: 31.1171, lng: -97.7278 } },
+            { name: "McKinney", coordinates: { lat: 33.1974, lng: -96.6398 } },
+            { name: "Cary", coordinates: { lat: 35.7915, lng: -78.7811 } },
+            { name: "Odessa", coordinates: { lat: 31.8457, lng: -102.3676 } },
+            { name: "McAllen", coordinates: { lat: 26.2034, lng: -98.23 } },
+            {
+              name: "Richardson",
+              coordinates: { lat: 32.9482, lng: -96.7291 },
+            },
+            {
+              name: "Chattanooga",
+              coordinates: { lat: 35.0456, lng: -85.3097 },
+            },
+            {
+              name: "Brownsville",
+              coordinates: { lat: 25.9017, lng: -97.4975 },
+            },
+            { name: "Longview", coordinates: { lat: 32.5007, lng: -94.7405 } },
+            { name: "Lawton", coordinates: { lat: 34.6058, lng: -98.3933 } },
+            {
+              name: "College Station",
+              coordinates: { lat: 30.6278, lng: -96.3344 },
+            },
+            { name: "Waco", coordinates: { lat: 31.5493, lng: -97.1467 } },
+            { name: "Macon", coordinates: { lat: 32.8407, lng: -83.6324 } },
+            { name: "Midland", coordinates: { lat: 31.9974, lng: -102.0779 } },
+            { name: "Beaumont", coordinates: { lat: 30.086, lng: -94.1018 } },
+            { name: "Sugar Land", coordinates: { lat: 29.6197, lng: -95.634 } },
+            { name: "Round Rock", coordinates: { lat: 30.5083, lng: -97.678 } },
+            { name: "Lewisville", coordinates: { lat: 33.0462, lng: -96.993 } },
+          ],
+        };
 
-      const selectElement = document.getElementById("geometry");
-      cityData.cities.forEach((city) => {
-        const option = document.createElement("option");
-        option.value = `${city.coordinates.lat},${city.coordinates.lng}`;
-        option.textContent = city.name;
-        selectElement.appendChild(option);
+        const selectElement = document.getElementById("geometry");
+        cityData.cities.forEach((city) => {
+          const option = document.createElement("option");
+          option.value = `${city.coordinates.lat},${city.coordinates.lng}`;
+          option.textContent = city.name;
+          selectElement.appendChild(option);
+        });
       });
-    });
-  </script>
+    </script>-->
 
-  <script src="static/js/jquery-3.4.1.min.js"></script>
-  <script src="static/js/bootstrap.js"></script>
-  <script src="static/js/custom.js"></script>
-</body>
-
+    <script src="static/js/jquery-3.4.1.min.js"></script>
+    <script src="static/js/bootstrap.js"></script>
+    <script src="static/js/custom.js"></script>
+  </body>
 </html>
