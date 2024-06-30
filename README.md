@@ -81,7 +81,7 @@ Ensure you have the following installed:
 
 ## Dataset
 
-The dataset used for training the machine learning model is not included in this repository due to size constraints. You can download a credit card fraud detection dataset from [this Google Drive link](https://drive.google.com/drive/folders/1aFhESGez12FMUmDD2kbaBbGR5ewF5-yF).
+The dataset used for training the machine learning model is not included in this repository due to size constraints. You can download a credit card fraud detection dataset from [Google Drive link](https://drive.google.com/file/d/1CRVv10OJXeNzxlOCqjB_pn5WoWLxcZiT/view?usp=sharing).
 
 ## Model
 
