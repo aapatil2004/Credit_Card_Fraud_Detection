@@ -33,13 +33,6 @@ Ensure you have the following installed:
 - Python 3.7+
 - pip (Python package installer)
 - Virtualenv (optional)
-- Flask==2.1.1
-- Flask-SQLAlchemy==2.5.1
-- Flask-Login==0.5.0
-- Flask-WTF==1.0.0
-- WTForms==3.0.0
-- Flask-Bcrypt==1.0.0
-- Flask-Migrate==3.1.0
 
 ### Steps
 
@@ -98,3 +91,6 @@ The machine learning model used in this project is XGBoost. You can train your o
 
 We welcome contributions! Please fork the repository and submit a pull request for any improvements or new features.
 
+## License
+
+This project is licensed under the MIT License.
