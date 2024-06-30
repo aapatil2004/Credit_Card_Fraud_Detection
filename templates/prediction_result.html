@@ -3,6 +3,12 @@
   <head>
     <title>Prediction Result</title>
     <link rel="stylesheet" type="text/css" href="static/css/result.css" />
+    <style>
+      /* Add any additional styles here */
+      .hidden {
+        display: none;
+      }
+    </style>
   </head>
   <body>
     <h1>Model Training Performance</h1>
@@ -33,28 +39,44 @@
         Formula: F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
       </p>
     </div>
-    
-    <h2>ROC-AUC Curve for the XGBoost Model</h2>
-    <div style="text-align: center;">
+
+    <div class="button-container" style="text-align: center;">
+      <button onclick="showSection('result')">Show Result</button>
+      <button onclick="showSection('roc-curve')">Show ROC Curve</button>
+      <button onclick="showSection('heatmap')">Show Heatmap</button>
+    </div>
+
+    <div id="result" class="hidden">
+      <h1>Prediction Result</h1>
+      {% if prediction == 1 %}
+        <p>The transaction is likely to be fraudulent.</p>
+      {% elif prediction == 0 %}
+        <p>The transaction is likely to be legitimate.</p>
+      {% else %}
+        <p>Unable to make a prediction.</p>
+      {% endif %}
+    </div>
+
+    <div id="roc-curve" class="hidden" style="text-align: center;">
+      <h2>ROC-AUC Curve for the XGBoost Model</h2>
       <img src="static/image.png" alt="The ROC-AUC curve">
     </div>
-    
-    <div style="text-align: center;">
-      <!-- <a href="transaction_heatmap.html">View Heatmap</a> -->
-       <h2>Heatmap</h2>
+
+    <div id="heatmap" class="hidden" style="text-align: center;">
       <img src="static/heatmap.png" alt="Heatmap">
     </div>
-    
-    <h1>Prediction Result</h1>
-    {% if prediction == 1 %}
-      <p>The transaction is likely to be fraudulent.</p>
-    {% elif prediction == 0 %}
-      <p>The transaction is likely to be legitimate.</p>
-    {% else %}
-      <p>Unable to make a prediction.</p>
-    {% endif %}
-    
+
     <br>
     <a href="{{ url_for('features') }}"><button>Back to Features</button></a>
+
+    <script>
+      function showSection(sectionId) {
+        document.getElementById('result').classList.add('hidden');
+        document.getElementById('roc-curve').classList.add('hidden');
+        document.getElementById('heatmap').classList.add('hidden');
+
+        document.getElementById(sectionId).classList.remove('hidden');
+      }
+    </script>
   </body>
 </html>
