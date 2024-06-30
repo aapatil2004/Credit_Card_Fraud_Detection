@@ -625,10 +625,10 @@ pre code {
 .row {
   display: -ms-flexbox;
   display: flex;
+  justify-content: center;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   margin-right: -15px;
-  justify-content: space-evenly;
   margin-left: -15px;
 }
 
@@ -1138,7 +1138,7 @@ pre code {
   }
   .col-md-6 {
     -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
+    display: contents;
     max-width: 50%;
   }
   .col-md-7 {
@@ -2100,7 +2100,7 @@ textarea.form-control {
 }
 
 .form-group {
-  margin-bottom: 1rem;
+  margin: 12px 12px;
 }
 
 .form-text {
@@ -2111,8 +2111,8 @@ textarea.form-control {
 .form-row {
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+  /* -ms-flex-wrap: wrap; */
+  /* flex-wrap: wrap; */
   margin-right: -5px;
   margin-left: -5px;
 }
@@ -2542,6 +2542,16 @@ textarea.form-control.is-invalid {
   }
 }
 
+.btn-center {
+  display: flex;
+  justify-content: center;
+}
+
+.btn-center button {
+  width: 100px; /* Adjust as needed */
+  margin-top: 40px;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
@@ -2569,7 +2579,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-  color: #212529;
+  color: #1a2e35;
   text-decoration: none;
 }
 
@@ -2591,14 +2601,12 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
+  background-color: #1a2e35;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
+  background-color: #1a2e35;
 }
 
 .btn-primary:focus,
