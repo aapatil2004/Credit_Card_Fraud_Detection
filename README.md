@@ -10,9 +10,7 @@ Welcome to the Credit Card Fraud Detection project. This repository contains the
 - [Usage](#usage)
 - [Dataset](#dataset)
 - [Model](#model)
-- [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Introduction
 
@@ -22,7 +20,9 @@ Credit card fraud detection is crucial in protecting consumers and financial ins
 
 - Predict whether a transaction is fraudulent or not using a pre-trained machine learning model.
 - Simple and user-friendly web interface built with Flask.
-- RESTful API endpoints for integration with other applications.
+- User registration and login functionality.
+- Protected routes accessible only after logging in.
+- CSRF protection enabled for all forms using Flask-WTF.
 
 ## Installation
 
@@ -32,7 +32,14 @@ Ensure you have the following installed:
 
 - Python 3.7+
 - pip (Python package installer)
-- Virtualenv (optional but recommended)
+- Virtualenv (optional)
+- Flask==2.1.1
+- Flask-SQLAlchemy==2.5.1
+- Flask-Login==0.5.0
+- Flask-WTF==1.0.0
+- WTForms==3.0.0
+- Flask-Bcrypt==1.0.0
+- Flask-Migrate==3.1.0
 
 ### Steps
 
@@ -43,7 +50,7 @@ Ensure you have the following installed:
     cd credit-card-fraud-detection
     ```
 
-2. **Create and activate a virtual environment (optional but recommended):**
+2. **Create and activate a virtual environment (optional):**
 
     ```bash
     python3 -m venv venv
@@ -56,61 +63,38 @@ Ensure you have the following installed:
     pip install -r requirements.txt
     ```
 
-4. **Run the application:**
+4. **Set up the database:**
 
     ```bash
-    flask run
+    flask db init
+    flask db migrate -m "Initial migration."
+    flask db upgrade
+    ```
+
+5. **Run the application:**
+
+    ```bash
+    python app.py
     ```
 
     The application will be available at `http://127.0.0.1:5000/`.
 
-## Usage
-
 ### Web Interface
 
 1. Navigate to `http://127.0.0.1:5000/` in your web browser.
-2. Enter the transaction details in the provided form.
-3. Click the "Predict" button to see if the transaction is fraudulent or not.
-
-### API Endpoints
-
-You can use the following API endpoints to integrate with other applications:
-
-- **Predict Transaction:**
-
-    ```http
-    POST /predict
-    ```
-
-    **Request Body:**
-
-    ```json
-    {
-      "transaction_details": {
-        "feature1": value1,
-        "feature2": value2,
-        ...
-      }
-    }
-    ```
-
-    **Response:**
-
-    ```json
-    {
-      "prediction": "fraudulent" or "not fraudulent",
-      "probability": 0.85
-    }
-    ```
+2. Register a new user or log in with existing credentials.
+3. Enter the transaction details on the features page.
+4. Click the "Predict" button to see if the transaction is fraudulent or not.
 
 ## Dataset
 
-The dataset used for training the machine learning model is not included in this repository due to size constraints. You can download a publicly available credit card fraud detection dataset from sources such as [Kaggle](https://www.kaggle.com/mlg-ulb/creditcardfraud).
+The dataset used for training the machine learning model is not included in this repository due to size constraints. You can download a credit card fraud detection dataset from [this Google Drive link](https://drive.google.com/drive/folders/1aFhESGez12FMUmDD2kbaBbGR5ewF5-yF).
 
 ## Model
 
-The machine learning model used in this project is a pre-trained classifier. You can train your own model using the dataset and update the application accordingly.
+The machine learning model used in this project is XGBoost. You can train your own model using the given dataset and update the application accordingly.
 
 ## Contributing
 
-We welcome contributions to improv
+We welcome contributions! Please fork the repository and submit a pull request for any improvements or new features.
+
