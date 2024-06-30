@@ -32,7 +32,7 @@ import os
 
 
 app = Flask(__name__)
-#app.config['SECRET_KEY'] = secret_key
+app.config['SECRET_KEY'] = "fraud_detection"
 #csrf = CSRFProtect(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
 #app.config['SECRET_KEY'] = 'your_secret_key'
@@ -93,7 +93,7 @@ def login():
         user = User.query.filter_by(username=form.username.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user)
-            return redirect(url_for('dashboard'))
+            return redirect(url_for('index'))
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', form=form)
@@ -104,13 +104,13 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-@app.route('/dashboard')
+@app.route('/')
 @login_required
 def dashboard():
     return render_template('dashboard.html')
 
-@app.route('/')
-def home():
+@app.route('/index')
+def index():
     return render_template('index.html')
 
 @app.route('/about')
