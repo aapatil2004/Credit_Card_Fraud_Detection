@@ -1,7 +1,31 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!-- Mobile Metas -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Site Metas -->
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
     <title>Prediction Result</title>
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="static/css/bootstrap.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Custom styles for this template -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="static/css/responsive.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="static/css/result.css" />
     <style>
       /* Add any additional styles here */
@@ -20,62 +44,67 @@
       <h2>Performance Metrics Explained</h2>
       <h3>Accuracy</h3>
       <p>
-        Accuracy is the ratio of correctly predicted instances to the total instances.
-        <br>
-        Formula: Accuracy = (True Positives + True Negatives) / (Total Instances)
+        Accuracy is the ratio of correctly predicted instances to the total
+        instances.
+        <br />
+        Formula: Accuracy = (True Positives + True Negatives) / (Total
+        Instances)
       </p>
-      <hr>
+      <hr />
       <h3>ROC AUC Score</h3>
       <p>
-        The ROC AUC score represents the area under the Receiver Operating Characteristic curve, which plots the true positive rate against the false positive rate.
-        <br>
+        The ROC AUC score represents the area under the Receiver Operating
+        Characteristic curve, which plots the true positive rate against the
+        false positive rate.
+        <br />
         Formula: ROC AUC = (1 + Sensitivity - (1 - Specificity)) / 2
       </p>
-      <hr>
+      <hr />
       <h3>F1 Score</h3>
       <p>
-        The F1 score is the harmonic mean of precision and recall, providing a balance between the two.
-        <br>
+        The F1 score is the harmonic mean of precision and recall, providing a
+        balance between the two.
+        <br />
         Formula: F1 Score = 2 * (Precision * Recall) / (Precision + Recall)
       </p>
     </div>
 
-    <div class="button-container" style="text-align: center;">
+    <div class="button-container" style="text-align: center">
       <button onclick="showSection('result')">Show Result</button>
       <button onclick="showSection('roc-curve')">Show ROC Curve</button>
       <button onclick="showSection('heatmap')">Show Heatmap</button>
     </div>
 
     <div id="result" class="hidden">
-      <h1>Prediction Result</h1>
+      <h1>PREDICTION RESULT</h1>
       {% if prediction == 1 %}
-        <p>The transaction is likely to be fraudulent.</p>
+      <p>The transaction is fraudulent.</p>
       {% elif prediction == 0 %}
-        <p>The transaction is likely to be legitimate.</p>
+      <p>The transaction is legitimate.</p>
       {% else %}
-        <p>Unable to make a prediction.</p>
+      <p>Unable to make a prediction.</p>
       {% endif %}
     </div>
 
-    <div id="roc-curve" class="hidden" style="text-align: center;">
+    <div id="roc-curve" class="hidden" style="text-align: center">
       <h2>ROC-AUC Curve for the XGBoost Model</h2>
-      <img src="static/image.png" alt="The ROC-AUC curve">
+      <img src="static/images/image.png" alt="The ROC-AUC curve" />
     </div>
 
-    <div id="heatmap" class="hidden" style="text-align: center;">
-      <img src="static/heatmap.png" alt="Heatmap">
+    <div id="heatmap" class="hidden" style="text-align: center">
+      <img src="static/images/heatmap.png" alt="Heatmap" />
     </div>
 
-    <br>
+    <br />
     <a href="{{ url_for('features') }}"><button>Back to Features</button></a>
 
     <script>
       function showSection(sectionId) {
-        document.getElementById('result').classList.add('hidden');
-        document.getElementById('roc-curve').classList.add('hidden');
-        document.getElementById('heatmap').classList.add('hidden');
+        document.getElementById("result").classList.add("hidden");
+        document.getElementById("roc-curve").classList.add("hidden");
+        document.getElementById("heatmap").classList.add("hidden");
 
-        document.getElementById(sectionId).classList.remove('hidden');
+        document.getElementById(sectionId).classList.remove("hidden");
       }
     </script>
   </body>
